@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 1. 配置墨水Bean（可切换GreyInk/ColorInk） -->
+    <bean id="ink" class="org.example.ink.GreyInk">
+        <!-- 颜色参数注入（解耦硬编码setColor） -->
+        <property name="r" value="128"/>
+        <property name="g" value="128"/>
+        <property name="b" value="128"/>
+    </bean>
+
+    <!-- 2. 配置纸张Bean（可切换A4Paper/B5Paper） -->
+    <bean id="paper" class="org.example.paper.A4Paper"/>
+
+    <!-- 3. 配置打印机Bean，注入依赖 -->
+    <bean id="printer" class="org.example.Printer">
+        <property name="ink" ref="ink"/>   <!-- 注入墨水 -->
+        <property name="paper" ref="paper"/> <!-- 注入纸张 -->
+    </bean>
+
+</beans>

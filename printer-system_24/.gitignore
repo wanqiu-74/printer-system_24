@@ -1,0 +1,27 @@
+# 编译产物（Java编译后的文件，必须过滤）
+target/
+out/
+*.class
+*.jar
+*.war
+
+# 编辑器配置（IDEA、VSCode等，避免推送冗余配置）
+.idea/
+.vscode/
+*.iml
+*.iws
+*.ipr
+.DS_Store  # Mac系统的隐藏文件，Windows也可以加，避免跨系统冲突
+
+# 日志和临时文件
+*.log
+*.tmp
+*.bak
+
+# Maven/Gradle相关（如果用了构建工具，过滤无用配置）
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
